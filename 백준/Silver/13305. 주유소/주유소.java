@@ -11,31 +11,31 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		
-		int l[] = new int[N];
-		int m[] = new int[N+1];
+		long len[] = new long [N-1];
+		long money[] = new long[N];
 		
-		int result = 0;
+		long result = 0;
 		
 		for(int i=0; i<N-1; i++) {
-			l[i] = sc.nextInt();
+			len[i] = sc.nextLong();
 		}
 		
 		for(int i=0; i<N; i++) {
-			m[i] = sc.nextInt();
+			money[i] = sc.nextLong();
 		}
 		
-		for(int i = 0; i < N; i++) {
-			if(m[i] > m[i+1]) {
-				result = result + (l[i] * m[i]);
+		long sum = 0;
+		long minmoney = money[0];
+		
+		for(int i = 0; i<N-1; i++) {
+			if(minmoney > money[i]) {
+				minmoney = money[i];
 			}
 			
-			else {
-				result = result + (l[i] + l[i+1]) * m[i];
-				i++;
-			}
+			sum += (minmoney * len[i]);
 		}
         	
-		System.out.println(result);
+		System.out.println(sum);
 		
 	}
 }
