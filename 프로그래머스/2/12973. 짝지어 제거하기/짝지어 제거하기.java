@@ -8,10 +8,7 @@ class Solution
         Stack<Character> st = new Stack<>();
         
         for(int i = 0; i < s.length(); i++){
-            if(st.isEmpty()){
-                st.push(s.charAt(i));
-            }
-            else if(!st.isEmpty() && st.peek() ==                       s.charAt(i)){
+            if(!st.isEmpty() && st.peek() ==                       s.charAt(i)){
                 st.pop();
             }
             else{
