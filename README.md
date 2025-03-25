@@ -1,5 +1,4 @@
 # KIM YUN GI 😉
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fk-iise&count_bg=%233D91C8&title_bg=%235C11D5&icon=&icon_color=%23050505&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=highcontrast)
 [![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=tuise)](https://solved.ac/tuise/)
