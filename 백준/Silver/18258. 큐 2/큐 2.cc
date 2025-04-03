@@ -1,66 +1,45 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<queue>
-
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
 
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-    
-	int N;
+int main(){
 
-	queue<int> t;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-	string mtr;
+    int N;
+    cin >> N;
+    queue<int> que;
 
-	cin >> N;
-	
-	cin.ignore();
+    while(N--){
+        string str;
+        cin >> str;
 
-	for (int i = 0; i < N; i++)
-	{
-		getline(cin, mtr);
-
-		if (mtr == "pop") {
-			if (t.empty())
-				cout << -1 << "\n";
-			else {
-				cout << t.front() << "\n";
-				t.pop();
-			}
-		}
-		else if (mtr == "size") {
-			if (!t.empty())
-				cout << t.size() << "\n";
-			else
-				cout << 0 << "\n";
-		}
-		else if (mtr == "empty") {
-			if (t.empty())
-				cout << 1 << "\n";
-			else
-				cout << 0 << "\n";
-		}
-		else if (mtr == "front") {
-			if (t.empty())
-				cout << -1 << "\n";
-			else
-				cout << t.front() << "\n";
-		}
-		else if (mtr == "back") {
-			if (t.empty())
-				cout << -1 << "\n";
-			else
-				cout << t.back() << "\n";
-		}
-		else {
-			string tmp = mtr.substr(5);
-			int cnt = stoi(tmp);
-			t.push(cnt);
-		}
-	}
+        if(str == "push"){
+            int tmp;
+            cin >> tmp;
+            que.push(tmp);
+        }
+        else if(str == "pop"){
+            if(que.empty()) cout << "-1\n";
+            else{
+                cout << que.front() << "\n";
+                que.pop();
+            }
+        }
+        else if(str == "size"){
+            cout << que.size() << "\n";
+        }
+        else if(str == "empty"){
+            if(que.empty()) cout << "1\n";
+            else cout << "0\n";
+        }
+        else if(str == "front"){
+            if(que.empty()) cout << "-1\n";
+            else cout << que.front() << "\n";
+        }
+        else if(str == "back"){
+            if(que.empty()) cout << "-1\n";
+            else cout << que.back() << "\n";
+        }
+    }
 }
-
-
