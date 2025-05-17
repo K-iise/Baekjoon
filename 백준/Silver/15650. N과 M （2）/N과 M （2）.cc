@@ -4,16 +4,16 @@ using namespace std;
 int N , M;
 int arr[10];
 bool checked[10];
-void func(int k);
+void func(int k, int start);
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
     cin >> N >> M;
-    func(0);
+    func(0,  1);
 }
 
-void func(int k){
+void func(int k, int start){
     if(k == M){
         for (int i = 0; i < k; i++)
         {
@@ -23,25 +23,10 @@ void func(int k){
         return;
     }
 
-    for (int i = 1; i <= N; i++)
+    for (int i = start; i <= N; i++)
     {
-        if(!checked[i]){
-
-            if(k == 0){
-                arr[k] = i;
-                checked[i] = true;
-                func(k+1);
-                checked[i] = false;
-            }
-            
-            else if(arr[k-1] < i){
-                arr[k] = i;
-                checked[i] = true;
-                func(k+1);
-                checked[i] = false;
-            }
-            
-        }
+        arr[k] = i;
+        func(k+1, i + 1); // 현재보다 큰 수를 다음 숫자로 준다. 
     }
     
 }
