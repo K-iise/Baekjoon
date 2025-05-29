@@ -1,30 +1,27 @@
-#include<iostream>
-#include<string>
-#include<algorithm>
-#include<map>
+#include<bits/stdc++.h>
 using namespace std;
 
-int dp[1000000];
-int main() {
-
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
+int dp[1000001];
+int main(){
     
-	int X;
+    int x;
 
-	cin >> X;
+    cin >> x;
 
-	for (int i = 2; i <= X; i++)
-	{
-		dp[i] = dp[i - 1] + 1;
+    for (int i = 2; i <= x; i++)
+    {
 
-		if (i % 2 == 0) {
-			dp[i] = min(dp[i], dp[i / 2] + 1);
-		}
-		if (i % 3 == 0)
-			dp[i] = min(dp[i], dp[i / 3] + 1);
-	}
+        dp[i] = dp[i-1] + 1;
 
-	cout << dp[X];
+        if(i % 3 == 0){
+            dp[i] = min(dp[i], dp[i/3] + 1);
+        }
+        if(i % 2 == 0){
+            dp[i] = min(dp[i], dp[i/2]+1);
+        }
+
+    }
+
+    cout << dp[x];
+    
 }
-
