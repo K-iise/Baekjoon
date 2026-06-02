@@ -1,24 +1,25 @@
 import java.util.*;
 
 public class Solution {
-    public Object[] solution(int []arr) {
-        Object[] answer = {};
-        ArrayList<Integer> alist = new ArrayList<>();
-        Stack<Integer> stack = new Stack<>();
+    public int[] solution(int []arr) {
+        List<Integer> list = new ArrayList<>();
         
-        for(int i = 0; i < arr.length; i++){
-            if(stack.isEmpty()){
-                stack.push(arr[i]);
-                alist.add(arr[i]);
+        Stack<Integer> s = new Stack<>();
+        for(int i = 0; i < arr.length; i++) {
+            if(s.empty()) {
+                s.push(arr[i]);
             }
-            else if(stack.peek() != arr[i]){
-                stack.push(arr[i]);
-                alist.add(arr[i]);
+            else if(!s.empty() && s.peek() != arr[i]) {
+                list.add(s.pop());
+                s.push(arr[i]);
             }
         }
+        list.add(s.pop());
+        int[] answer = new int[list.size()];
+        for(int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
+        }
         
-        answer = alist.toArray();
-
         return answer;
     }
 }
