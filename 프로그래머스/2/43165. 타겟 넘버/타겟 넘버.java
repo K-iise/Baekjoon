@@ -5,9 +5,17 @@ class Solution {
     static int result = 0;
     public int solution(int[] numbers, int target) {
         int answer = 0;
-        backtracking(new ArrayList<>(), numbers, target);
-        answer = result;
+        // backtracking(new ArrayList<>(), numbers, target);
+        answer += back(0, 0, numbers, target);
         return answer;
+    }
+    
+    public int back(int index, int currentSum, int[] numbers, int target) {
+        if (index == numbers.length) {
+            return currentSum == target ? 1 : 0;
+        }
+        return back(index + 1, currentSum + numbers[index], numbers, target)
+             + back(index + 1, currentSum - numbers[index], numbers, target);
     }
 
     public void backtracking(List<Integer> numbers, int[] nums, int target) {
