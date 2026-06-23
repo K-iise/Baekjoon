@@ -7,7 +7,7 @@ class Solution {
     static int dy[] = {0, 0, 1, -1};
     
     static int startX, startY;
-    static int reberX, reberY;
+    static int leberX, leberY;
     static int endX, endY;
     
     public int solution(String[] maps) {
@@ -28,16 +28,16 @@ class Solution {
                     endY = j;
                 }
                 if(maps[i].charAt(j) == 'L') {
-                    reberX = i;
-                    reberY = j;
+                    leberX = i;
+                    leberY = j;
                 }
             }
         }
         
-        int toLever = bfs(maps, startX, startY, reberX, reberY);
+        int toLever = bfs(maps, startX, startY, leberX, leberY);
         if (toLever == -1) return -1;    
 
-        int toExit = bfs(maps, reberX, reberY, endX, endY);
+        int toExit = bfs(maps, leberX, leberY, endX, endY);
         if (toExit == -1) return -1; 
         
         answer = toLever + toExit;
