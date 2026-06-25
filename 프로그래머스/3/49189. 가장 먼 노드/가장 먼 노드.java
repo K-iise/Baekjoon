@@ -8,7 +8,7 @@ class Solution {
         int max = 0;
         visit = new boolean[n+1];
         
-        List<Node> nodes = new LinkedList<>();
+        List<Node> nodes = new ArrayList<>();
         
         nodes.add(new Node(0));
         
