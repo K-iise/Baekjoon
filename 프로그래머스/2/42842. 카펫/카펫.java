@@ -1,24 +1,16 @@
 class Solution {
     public int[] solution(int brown, int yellow) {
-        int width = 0;
-        int length = 0;
-        while(true) {
-            int outline = (width * 2) + ((length - 2) * 2);
-            if(outline == brown) {
-                if(width*length == brown+yellow)
-                    break;
-            }
-            if(width == length) {
-                width++;
-                length = 0;
+        int total = brown + yellow;
+        
+        for(int height = 3; height * height <= total; height++) {
+            if(total % height != 0) 
                 continue;
-            } else {
-                length++;
-            }
+            
+            int width = total / height;
+            
+            if((width - 2) * (height - 2) == yellow) 
+                return new int[]{ width, height };
         }
-        int []answer = new int[2];
-        answer[0] = width;
-        answer[1] = length;
-        return answer;
+        return new int[]{};
     }
 }
